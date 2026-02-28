@@ -1,0 +1,36 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>My Reports</h2>
+    
+    {% if reports %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Location</th>
+                <th>Department</th>
+                <th>Issue type</th>
+                <th>Status</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for report in reports %}
+            <tr>
+                <td>{{ report.id }}</td>
+                <td>{{ report.location }}</td>
+                <td>{{ report.department }}</td>
+                <td>{{ report.issue_type }}</td>
+                <td>{{ report.status }}</td>  
+                <td>{{ report.created_at }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No reports found.</p>
+    {% endif %}
+</div>
+{% endblock %}
